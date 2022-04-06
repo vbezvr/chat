@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="btn setting-btn">Настройки</div>
+        <div class="btn exit-btn">Выйти</div>
+
+        <div class="chat">
+            <div class="message income-msg"><span class="text">Собеседник мой: А это второе и, кажется, оно очень
+            длинное, чтобы поместиться на
+            одной строке</span><span class="time">18:45</span></div>
+            <div class="message outcome-msg"><span class="text">Я: Добрый день!</span><span class="time">18:45</span></div>
+
+        </div>
+        <form onsubmit="return false">
+            <input type="text" class="input-enter-msg" placeholder="сообщение..">
+            <input type="image" class="enter-btn" src="img/send.svg">
+        </form>
+    </div>
+<template class="new_message">
+    <div class="message outcome-msg"><span class="text">Я: </span><span class="time">18:45</span></div>
+</template>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

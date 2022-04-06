@@ -1,0 +1,164 @@
+html {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+  width: 320px;
+  border: 1px solid #000;
+  margin: 0 auto;
+  padding: 8px;
+  position: relative;
+}
+
+.btn {
+  text-align: center;
+  border: 1px solid #000;
+  margin: 0 0 8px;
+  padding: 5px;
+  display: inline-block;
+}
+
+.exit-btn {
+  float: right;
+}
+
+.chat {
+  min-height: 435px;
+  border: 1px solid #000;
+  flex-direction: column-reverse;
+  margin-bottom: 8px;
+  padding: 8px 8px 0;
+  display: flex;
+}
+
+.message {
+  text-align: start;
+  margin-bottom: 8px;
+  padding: 8px;
+  display: inline-block;
+}
+
+.income-msg {
+  background-color: #e5e5e5;
+  align-self: flex-start;
+}
+
+.outcome-msg {
+  background-color: #f6f6f6;
+  align-self: flex-end;
+}
+
+.text {
+  display: block;
+}
+
+.time {
+  float: right;
+  font-size: 12px;
+  font-style: italic;
+  display: block;
+}
+
+.input-enter-msg {
+  width: 273px;
+  height: 32px;
+  line-height: 1, 5;
+  border: 1px solid #bdbdbd;
+  border-radius: .25rem;
+  font-size: 16px;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.input-enter-msg::placeholder {
+  color: #212529;
+  opacity: .4;
+}
+
+.input-enter-msg:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: none;
+  box-shadow: 0 0 .1rem .1rem #9e9e9e40;
+}
+
+.enter-btn {
+  width: 34px;
+  height: 34px;
+  background: #fff;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.modal-setting, .setting-content {
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal-setting.hidden .setting-content, .modal-setting.hidden {
+  opacity: 1;
+  z-index: 100;
+}
+
+.modal-setting.hidden {
+  background: #fff;
+}
+
+.modal-setting.open .setting-content {
+  transform: translateY(-100px);
+}
+
+.modal-setting.open .setting-content, .modal-setting.open {
+  opacity: 1;
+  z-index: 100;
+}
+
+.modal-setting.open {
+  background: #535353;
+}
+
+.modal-setting.open .setting-content {
+  transform: translateY(100px);
+}
+
+.modal-setting {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: background .2s ease-in;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.setting-content {
+  width: 257px;
+  min-height: 303px;
+  background-color: #fff;
+  padding: 16px;
+  transition: transform .2s ease-in;
+  position: relative;
+  top: 6px;
+  left: 24px;
+}
+
+.exit-btn {
+  color: #535353;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.name-txt {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+form {
+  justify-content: space-between;
+  display: flex;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */

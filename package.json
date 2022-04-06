@@ -1,0 +1,20 @@
+{
+  "name": "chat-app",
+  "version": "1.0.1",
+  "description": "chat application on javascript with any dependencies ",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "v.bezverhaya",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.28.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
+}
