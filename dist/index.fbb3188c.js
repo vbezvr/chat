@@ -541,12 +541,7 @@ function loadImg() {
 }
 loadImg();
 _viewJs.ui.enter_button.addEventListener('click', sendMessage);
-_viewJs.initButtons(); // const modal = new Modal();
- // const newModal = modal.getModal();
- // setTimeout(() => {newModal.open()}, 5000);
- // setTimeout(() => {
- //   newModal.close();
- // }, 8000);
+_viewJs.initButtons();
 
 },{"./view.js":"2GA9o","date-fns":"9yHCA","date-fns/locale":"lASMG","../img/send.svg":"cXEja","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./modal.js":"guy4I"}],"2GA9o":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -643,7 +638,7 @@ class Modal {
         return Object.assign(modalInstance, {
             destroy () {
                 modal.parentNode.removeChild(modal);
-                modal.removeEventListener('click');
+                modal.removeEventListener('click', listener);
             }
         });
     }
