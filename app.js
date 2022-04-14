@@ -12,6 +12,9 @@ app.use(express.static(__dirname + "/js"));
 
 io.on('connection', (socket) => {
     console.log("user connect");
+    socket.on("chat message", (data) => {
+        io.emit("chat message", data)
+    })
 })
 
 server.listen(3000, () => {

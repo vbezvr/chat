@@ -5,8 +5,8 @@ export class Modal {
   values = {
     title: "Настройки",
     content: `<p class="name-txt">Имя в чате</p>
-                <form onsubmit="return false">
-                    <input type="text" id="enter-name" class="input-enter-msg">
+                <form id="enter-name">
+                    <input type="text" class="input-enter-msg">
                     <input type="image" class="enter-btn" src="img/send.svg">
                 </form>`,
   };
@@ -34,21 +34,20 @@ export class Modal {
           modal.classList.remove("hidden");
         }, ANIMATION_SPEED);
       },
-
     };
 
-    const listener = event => {
-       if (event.target.dataset.close) {
-         modalInstance.close();
-       }
-    }
-    modal.addEventListener('click', listener)
-    
+    const listener = (event) => {
+      if (event.target.dataset.close) {
+        modalInstance.close();
+      }
+    };
+    modal.addEventListener("click", listener);
+
     return Object.assign(modalInstance, {
       destroy() {
         modal.parentNode.removeChild(modal);
-        modal.removeEventListener('click', listener);
-      }
+        modal.removeEventListener("click", listener);
+      },
     });
   }
 
@@ -67,5 +66,4 @@ export class Modal {
     ui.display_chat.append(modalWindow);
     return modalWindow;
   }
-
 }
