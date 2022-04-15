@@ -18,7 +18,8 @@ function initSettingWindow(modal) {
   const userNameForm = document.querySelector("#enter-name");
   userNameForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    user.name = userNameForm.value;
+    user.name = userNameForm.children[0].value;
+    console.log(user.name)
     modalInstance.close()
   })
 }

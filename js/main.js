@@ -7,10 +7,14 @@ export {user}
 
 const user = {
   name: null,
-  id: null
+  id: null, 
 }
 
 const socket = io();
+
+socket.on('connect', () => {
+  user.id = socket.id;
+})
 
 function submitMessageForm() {
   const textMessage = ui.input_message.value;
@@ -23,10 +27,19 @@ function submitMessageForm() {
 socket.on("chat message", sendMessage);
 
 function sendMessage(data) {
-  const templateMsg = (socket.id === data.id) ? html.getTemplateOutcomeMessage() : html.getTemplateIncomeMessage(); 
-  
-  const message = templateMsg.content.cloneNode(true);
-  message.querySelector(".text").textContent =  data.message;
+  const msgDirection = {
+    templateMsg: html.getTemplateIncomeMessage(),
+    nickname: data.userName
+  }
+
+  if (user.id === data.id) {
+
+    msgDirection.templateMsg = html.getTemplateOutcomeMessage();
+    msgDirection.nickname = 'Я';
+
+  } 
+  const message = msgDirection.templateMsg.content.cloneNode(true);
+  message.querySelector(".text").textContent =`${msgDirection.nickname}: ${data.message}`;
   // message.querySelector(".time").textContent = getCurrentTime();
   ui.display_chat.prepend(message);
   ui.input_message.value = "";
