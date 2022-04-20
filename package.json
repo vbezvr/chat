@@ -2,7 +2,9 @@
   "name": "chat-app",
   "version": "1.0.1",
   "description": "chat application on javascript with any dependencies ",
-  "main": "main.js",
+  "main": "app.js",
+  "type": "module",
+ 
   "scripts": {
     "test": "test"
   },
