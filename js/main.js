@@ -1,10 +1,11 @@
 import {ui, initButtons} from './view.js';
 import {html} from './helper.js';
 import {storage} from './storage.js';
+import { loadHistory } from './scroll.js';
 // import { format } from "date-fns";
 // import { ru } from 'date-fns/locale';
 // import image from "../send.svg";
-export {user}
+export {user, sendMessage}
 
 const user = {
   name: null,
@@ -18,7 +19,7 @@ socket.on('connect', () => {
   if (storage.isEmpty()) {
     storage.createStorageMessage()
   } else {
-    loadHistory()
+    loadHistory('init')
   }
 })
 
@@ -39,7 +40,19 @@ function submitMessageForm() {
 
 socket.on("chat message", sendMessage);
 
-function sendMessage(data) {
+function sendMessage(data, option = 'init') {
+
+  const handleInit = () => {
+    ui.display_chat.prepend(message);
+    ui.input_message.value = "";
+  };
+  const handleLoad = () => { ui.display_chat.append(message); }
+
+  const handlers = {
+    load: handleLoad,
+    init: handleInit
+  }
+  const handler = handlers[option];
   const msgDirection = {
     templateMsg: html.getTemplateIncomeMessage(),
     nickname: data.userName
@@ -53,16 +66,11 @@ function sendMessage(data) {
   const message = msgDirection.templateMsg.content.cloneNode(true);
   message.querySelector(".text").textContent =`${msgDirection.nickname}: ${data.message}`;
   // message.querySelector(".time").textContent = getCurrentTime();
-  ui.display_chat.prepend(message);
-  ui.input_message.value = "";
+  handler();
   
 }
 
-function loadHistory() { 
-  const messages = storage.getMessageHistory();
-  messages.history.forEach(data => { sendMessage(JSON.parse(data)) });
 
-}
 
 // function getCurrentTime() {
 //   return format(new Date(), 'kk:m', {locale: ru});
@@ -77,4 +85,3 @@ function loadHistory() {
 ui.enter_button.addEventListener('click', submitMessageForm);
 
 initButtons();
-

@@ -29,9 +29,15 @@ html {
     display: flex;
     flex-direction: column-reverse;
     border: 1px solid black;
-    min-height: 435px;
+    height: 435px;
     margin-bottom: 8px;
     padding: 8px 8px 0;
+    overflow: auto;
+}
+
+.chat::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .message {

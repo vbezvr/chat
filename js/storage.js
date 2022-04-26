@@ -22,5 +22,6 @@ export const storage = {
 
     isEmpty() {
         return localStorage.length === 0;
-    }
+    },
+
 }
